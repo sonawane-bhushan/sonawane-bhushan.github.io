@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Tech Blogs By Bhushan</title>
-    <link>https://examplesite.com/tags/</link>
+    <link>https://sonawane-bhushan.github.io/tags/</link>
     <description>Recent content in Tags on Tech Blogs By Bhushan</description>
     <image>
       <title>Tech Blogs By Bhushan</title>
-      <url>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://sonawane-bhushan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://sonawane-bhushan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://examplesite.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>first</title>
-      <link>https://examplesite.com/tags/first/</link>
+      <link>https://sonawane-bhushan.github.io/tags/first/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
       
-      <guid>https://examplesite.com/tags/first/</guid>
+      <guid>https://sonawane-bhushan.github.io/tags/first/</guid>
       <description></description>
     </item>
     
     <item>
       <title>second</title>
-      <link>https://examplesite.com/tags/second/</link>
+      <link>https://sonawane-bhushan.github.io/tags/second/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
       
-      <guid>https://examplesite.com/tags/second/</guid>
+      <guid>https://sonawane-bhushan.github.io/tags/second/</guid>
       <description></description>
     </item>
     
