@@ -1,6 +1,6 @@
 ---
 title: "Null Safety In Kotlin"
-date: 2022-04-01T11:30:03+00:00
+date: 2022-04-24T11:30:03+00:00
 weight: 1
 aliases: ["/null-safety"]
 tags: ["null-safety", "kotlin", "Kotlin Beginners", "Beginners"]
@@ -212,6 +212,6 @@ That’s all about null reference safety in Kotlin !! I hope this article was ab
 Happy Coding !!
 
 ## References
+
 1. [Kotlin Documentation - Null Safety](https://kotlinlang.org/docs/null-safety.html)
 2. [Geeks for Geeks - Kotlin Null Safety](https://www.geeksforgeeks.org/kotlin-null-safety/)
-
