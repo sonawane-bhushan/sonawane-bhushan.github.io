@@ -18,7 +18,7 @@ params:
   description: "Tech Blogs By Bhushan"
   keywords: [Blog, Tech]
   author: Bhushan Sonawane
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  images: [""]
   DateFormat: "January 2, 2006"
   defaultTheme: auto 
   disableThemeToggle: false
@@ -48,10 +48,12 @@ params:
     Content: Welcome to my blog site. Here I post blogs about various tech related topics
 
   socialIcons:
-    - name: twitter
-      url: "https://twitter.com/"
     - name: github
       url: "https://github.com/sonawane-bhushan"
+    - name: medium
+      url: "https://medium.com/@bhushan_sonawane"
+    - name: twitter
+      url: "https://twitter.com/imb_sonawane"
 
 menu:
   main:
