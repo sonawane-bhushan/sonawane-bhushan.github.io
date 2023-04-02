@@ -6,26 +6,44 @@
     <description>Recent content in Tags on Tech Blogs By Bhushan</description>
     <image>
       <title>Tech Blogs By Bhushan</title>
-      <url>https://sonawane-bhushan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://sonawane-bhushan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://sonawane-bhushan.github.io/</url>
+      <link>https://sonawane-bhushan.github.io/</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>first</title>
-      <link>https://sonawane-bhushan.github.io/tags/first/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <title>Beginners</title>
+      <link>https://sonawane-bhushan.github.io/tags/beginners/</link>
+      <pubDate>Fri, 01 Apr 2022 11:30:03 +0000</pubDate>
       
-      <guid>https://sonawane-bhushan.github.io/tags/first/</guid>
+      <guid>https://sonawane-bhushan.github.io/tags/beginners/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>second</title>
-      <link>https://sonawane-bhushan.github.io/tags/second/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <title>kotlin</title>
+      <link>https://sonawane-bhushan.github.io/tags/kotlin/</link>
+      <pubDate>Fri, 01 Apr 2022 11:30:03 +0000</pubDate>
       
-      <guid>https://sonawane-bhushan.github.io/tags/second/</guid>
+      <guid>https://sonawane-bhushan.github.io/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kotlin Beginners</title>
+      <link>https://sonawane-bhushan.github.io/tags/kotlin-beginners/</link>
+      <pubDate>Fri, 01 Apr 2022 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/kotlin-beginners/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>null-safety</title>
+      <link>https://sonawane-bhushan.github.io/tags/null-safety/</link>
+      <pubDate>Fri, 01 Apr 2022 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/null-safety/</guid>
       <description></description>
     </item>
     
