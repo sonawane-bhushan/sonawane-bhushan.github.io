@@ -3,28 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sonawane-bhushan.github.io/posts/nullsafety/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <lastmod>2022-04-24T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/posts/kotlinlambdas/</loc>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/beginners/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/kotlin/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/kotlin-beginners/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>https://sonawane-bhushan.github.io/tags/null-safety/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <loc>https://sonawane-bhushan.github.io/tags/lambdas/</loc>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/posts/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/</loc>
-    <lastmod>2022-04-01T11:30:03+00:00</lastmod>
+    <lastmod>2022-05-13T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/null-safety/</loc>
+    <lastmod>2022-04-24T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/categories/</loc>
   </url>

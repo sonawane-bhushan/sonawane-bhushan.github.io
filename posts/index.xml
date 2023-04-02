@@ -10,14 +10,23 @@
       <link>https://sonawane-bhushan.github.io/</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Apr 2022 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 May 2022 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Null Safety In Kotlin</title>
       <link>https://sonawane-bhushan.github.io/posts/nullsafety/</link>
-      <pubDate>Fri, 01 Apr 2022 11:30:03 +0000</pubDate>
+      <pubDate>Sun, 24 Apr 2022 11:30:03 +0000</pubDate>
       
       <guid>https://sonawane-bhushan.github.io/posts/nullsafety/</guid>
       <description>How kotlin handles null safety to make getting NullPointerExcpetion almost impossible</description>
+    </item>
+    
+    <item>
+      <title>Lambdas in Kotlin</title>
+      <link>https://sonawane-bhushan.github.io/posts/kotlinlambdas/</link>
+      <pubDate>Fri, 13 May 2022 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/posts/kotlinlambdas/</guid>
+      <description>All about lambdas in Kotlin</description>
     </item>
     
   </channel>
