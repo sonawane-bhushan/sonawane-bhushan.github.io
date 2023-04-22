@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>docker on Tech Blogs By Bhushan</title>
+    <link>https://sonawane-bhushan.github.io/tags/docker/</link>
+    <description>Recent content in docker on Tech Blogs By Bhushan</description>
+    <image>
+      <title>Tech Blogs By Bhushan</title>
+      <url>https://sonawane-bhushan.github.io/</url>
+      <link>https://sonawane-bhushan.github.io/</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 15 Apr 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Static HTML with Nginx Image</title>
+      <link>https://sonawane-bhushan.github.io/posts/dockerstatichtmlnginx/</link>
+      <pubDate>Sat, 15 Apr 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/posts/dockerstatichtmlnginx/</guid>
+      <description>How to create a Docker Image for static HTML content using nginx</description>
+    </item>
+    
+  </channel>
+</rss>
