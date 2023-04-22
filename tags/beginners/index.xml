@@ -12,7 +12,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 15 Apr 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Static HTML with Nginx Image</title>
+      <title>Creating docker image for static HTML using Nginx</title>
       <link>https://sonawane-bhushan.github.io/posts/dockerstatichtmlnginx/</link>
       <pubDate>Sat, 15 Apr 2023 11:30:03 +0000</pubDate>
       
