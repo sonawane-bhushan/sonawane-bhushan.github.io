@@ -10,7 +10,16 @@
       <link>https://sonawane-bhushan.github.io/</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Apr 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Apr 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dockerising Node.js Application</title>
+      <link>https://sonawane-bhushan.github.io/posts/dockernodejs/</link>
+      <pubDate>Sun, 30 Apr 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/posts/dockernodejs/</guid>
+      <description>How to create a Docker Image for node js based application</description>
+    </item>
+    
     <item>
       <title>Creating docker image for static HTML using Nginx</title>
       <link>https://sonawane-bhushan.github.io/posts/dockerstatichtmlnginx/</link>
