@@ -41,7 +41,7 @@ So far we know hooks are the feature released as part of react 16.8 that allowed
 
 Hooks let you use different React features from your components. Hooks provide a more concise and intuitive way to write reusable and stateful logic within functional components.
 
-## The general rules of React Hooks:
+## The general rules of React Hooks
 
 1. Hooks should be always at top level, Hooks should not be called inside loops, conditions or nested functions
 2. Hooks should be used in functional components only
@@ -57,7 +57,7 @@ Performance Hooks - useMemo, useCallback
 
 Let's take a look at some of the mostly used hooks
 
-## useState - 
+## useState
 
 useState is a React Hook that lets you add a state variable to your component. It returns an array with two elements: the current state value and a function to update that state. 
 
@@ -116,7 +116,7 @@ function DataFetcher() {
 
 Here useEffect is used to fetchData and save its value to state. Since dependencies are empty the useEffect will run only once after initial render and then on subsequent renders of component. 
 
-## useContext -
+## useContext 
 
 useContext is a React Hook that lets you read and subscribe to context from your component. It takes a context object created with React.createContext and returns the current context value. 
 
@@ -136,7 +136,7 @@ function ThemedText() {
 }
 ```
 
-Creating custom hooks - 
+## Creating custom hooks 
 
 You can create your own custom hooks to encapsulate reusable stateful logic and share it across multiple components. Custom hooks follow a naming convention of starting with the word "use" and can use other built-in hooks. Custom hooks are best to create reusable blocks of code eg. to fetch the data from the url which can be reused in multiple components. 
 
