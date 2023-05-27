@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>nodejs on Tech Blogs By Bhushan</title>
-    <link>https://sonawane-bhushan.github.io/tags/nodejs/</link>
-    <description>Recent content in nodejs on Tech Blogs By Bhushan</description>
+    <title>javascript on Tech Blogs By Bhushan</title>
+    <link>https://sonawane-bhushan.github.io/tags/javascript/</link>
+    <description>Recent content in javascript on Tech Blogs By Bhushan</description>
     <image>
       <title>Tech Blogs By Bhushan</title>
       <url>https://sonawane-bhushan.github.io/</url>
@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 May 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 May 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React Hooks</title>
       <link>https://sonawane-bhushan.github.io/posts/reacthooks/</link>
@@ -19,15 +19,6 @@
       
       <guid>https://sonawane-bhushan.github.io/posts/reacthooks/</guid>
       <description>What, Why and How About React Hooks</description>
-    </item>
-    
-    <item>
-      <title>Dockerising Node.js Application</title>
-      <link>https://sonawane-bhushan.github.io/posts/dockernodejs/</link>
-      <pubDate>Sun, 30 Apr 2023 11:30:03 +0000</pubDate>
-      
-      <guid>https://sonawane-bhushan.github.io/posts/dockernodejs/</guid>
-      <description>How to create a Docker Image for node js based application</description>
     </item>
     
   </channel>

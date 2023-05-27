@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sonawane-bhushan.github.io/posts/reacthooks/</loc>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
+  </url><url>
     <loc>https://sonawane-bhushan.github.io/posts/dockernodejs/</loc>
     <lastmod>2023-04-30T11:30:03+00:00</lastmod>
   </url><url>
@@ -15,21 +18,30 @@
     <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/beginners/</loc>
-    <lastmod>2023-04-30T11:30:03+00:00</lastmod>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>https://sonawane-bhushan.github.io/tags/docker/</loc>
-    <lastmod>2023-04-30T11:30:03+00:00</lastmod>
+    <loc>https://sonawane-bhushan.github.io/tags/hooks/</loc>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/javascript/</loc>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/nodejs/</loc>
-    <lastmod>2023-04-30T11:30:03+00:00</lastmod>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/posts/</loc>
-    <lastmod>2023-04-30T11:30:03+00:00</lastmod>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/react/</loc>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/</loc>
-    <lastmod>2023-04-30T11:30:03+00:00</lastmod>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/</loc>
+    <lastmod>2023-05-25T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/docker/</loc>
     <lastmod>2023-04-30T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/nginx/</loc>
