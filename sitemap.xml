@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sonawane-bhushan.github.io/posts/kafkasetup/</loc>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
+  </url><url>
     <loc>https://sonawane-bhushan.github.io/posts/reactiveprogramming/</loc>
     <lastmod>2023-05-27T11:30:03+00:00</lastmod>
   </url><url>
@@ -21,21 +24,33 @@
     <lastmod>2022-05-13T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/beginners/</loc>
-    <lastmod>2023-05-27T11:30:03+00:00</lastmod>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/docker/</loc>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/kafka/</loc>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/kafka-setup/</loc>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/local/</loc>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/posts/</loc>
-    <lastmod>2023-05-27T11:30:03+00:00</lastmod>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/tags/</loc>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sonawane-bhushan.github.io/</loc>
+    <lastmod>2023-09-27T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/programming/</loc>
     <lastmod>2023-05-27T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/reactive/</loc>
-    <lastmod>2023-05-27T11:30:03+00:00</lastmod>
-  </url><url>
-    <loc>https://sonawane-bhushan.github.io/tags/</loc>
-    <lastmod>2023-05-27T11:30:03+00:00</lastmod>
-  </url><url>
-    <loc>https://sonawane-bhushan.github.io/</loc>
     <lastmod>2023-05-27T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/hooks/</loc>
@@ -49,9 +64,6 @@
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/react/</loc>
     <lastmod>2023-05-25T11:30:03+00:00</lastmod>
-  </url><url>
-    <loc>https://sonawane-bhushan.github.io/tags/docker/</loc>
-    <lastmod>2023-04-30T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sonawane-bhushan.github.io/tags/nginx/</loc>
     <lastmod>2023-04-15T11:30:03+00:00</lastmod>

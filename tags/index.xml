@@ -11,13 +11,49 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 27 May 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Sep 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>beginners</title>
       <link>https://sonawane-bhushan.github.io/tags/beginners/</link>
-      <pubDate>Sat, 27 May 2023 11:30:03 +0000</pubDate>
+      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
       
       <guid>https://sonawane-bhushan.github.io/tags/beginners/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://sonawane-bhushan.github.io/tags/docker/</link>
+      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kafka</title>
+      <link>https://sonawane-bhushan.github.io/tags/kafka/</link>
+      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kafka-setup</title>
+      <link>https://sonawane-bhushan.github.io/tags/kafka-setup/</link>
+      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/kafka-setup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>local</title>
+      <link>https://sonawane-bhushan.github.io/tags/local/</link>
+      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/local/</guid>
       <description></description>
     </item>
     
@@ -72,15 +108,6 @@
       <pubDate>Thu, 25 May 2023 11:30:03 +0000</pubDate>
       
       <guid>https://sonawane-bhushan.github.io/tags/react/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://sonawane-bhushan.github.io/tags/docker/</link>
-      <pubDate>Sun, 30 Apr 2023 11:30:03 +0000</pubDate>
-      
-      <guid>https://sonawane-bhushan.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
