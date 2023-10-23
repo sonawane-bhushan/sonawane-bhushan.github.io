@@ -11,7 +11,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Sep 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/local/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Sep 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/local/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application</title>
+      <link>https://sonawane-bhushan.github.io/posts/kafkaproject/</link>
+      <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/posts/kafkaproject/</guid>
+      <description>Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands</description>
+    </item>
+    
     <item>
       <title>Kafka Series - 1 Setting up kafka on local machine</title>
       <link>https://sonawane-bhushan.github.io/posts/kafkasetup/</link>

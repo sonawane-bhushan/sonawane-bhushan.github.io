@@ -11,13 +11,58 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Sep 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Sep 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>beginners</title>
       <link>https://sonawane-bhushan.github.io/tags/beginners/</link>
-      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
+      <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
       
       <guid>https://sonawane-bhushan.github.io/tags/beginners/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://sonawane-bhushan.github.io/tags/java/</link>
+      <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kafka</title>
+      <link>https://sonawane-bhushan.github.io/tags/kafka/</link>
+      <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kafka-setup</title>
+      <link>https://sonawane-bhushan.github.io/tags/kafka-setup/</link>
+      <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/kafka-setup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>local</title>
+      <link>https://sonawane-bhushan.github.io/tags/local/</link>
+      <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/local/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springboot</title>
+      <link>https://sonawane-bhushan.github.io/tags/springboot/</link>
+      <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
+      
+      <guid>https://sonawane-bhushan.github.io/tags/springboot/</guid>
       <description></description>
     </item>
     
@@ -27,33 +72,6 @@
       <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
       
       <guid>https://sonawane-bhushan.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kafka</title>
-      <link>https://sonawane-bhushan.github.io/tags/kafka/</link>
-      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
-      
-      <guid>https://sonawane-bhushan.github.io/tags/kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kafka-setup</title>
-      <link>https://sonawane-bhushan.github.io/tags/kafka-setup/</link>
-      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
-      
-      <guid>https://sonawane-bhushan.github.io/tags/kafka-setup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>local</title>
-      <link>https://sonawane-bhushan.github.io/tags/local/</link>
-      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
-      
-      <guid>https://sonawane-bhushan.github.io/tags/local/</guid>
       <description></description>
     </item>
     

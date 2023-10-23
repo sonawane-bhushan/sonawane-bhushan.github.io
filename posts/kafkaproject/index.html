@@ -1,0 +1,179 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application | Tech Blogs By Bhushan</title><meta name=keywords content="kafka-setup,kafka,local,java,springboot,beginners"><meta name=description content="Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands"><meta name=author content="Bhushan Sonawane"><link rel=canonical href=https://canonical.url/to/page><link crossorigin=anonymous href=/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe+FVUFzPh7U=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://sonawane-bhushan.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://sonawane-bhushan.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://sonawane-bhushan.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://sonawane-bhushan.github.io/apple-touch-icon.png><link rel=mask-icon href=https://sonawane-bhushan.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application"><meta property="og:description" content="Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands"><meta property="og:type" content="article"><meta property="og:url" content="https://sonawane-bhushan.github.io/posts/kafkaproject/"><meta property="og:image" content="https://sonawane-bhushan.github.io/%3Cimage%20path/url%3E"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-09-30T11:30:03+00:00"><meta property="article:modified_time" content="2023-09-30T11:30:03+00:00"><meta property="og:site_name" content="Tech Blogs By Bhushan"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://sonawane-bhushan.github.io/%3Cimage%20path/url%3E"><meta name=twitter:title content="Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application"><meta name=twitter:description content="Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://sonawane-bhushan.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application","item":"https://sonawane-bhushan.github.io/posts/kafkaproject/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application","name":"Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application","description":"Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands","keywords":["kafka-setup","kafka","local","java","springboot","beginners"],"articleBody":"Consuming and publishing kafka messages in spring boot In the last blog we saw how to bring up a kafka cluster on local and publish-consume messages using kafka-console commands. In this blog we will take a look at how to connect your spring boot application to kafka cluster and publish-consume messages via it.\nLet’s start by creating producer first\nGo to https://start.spring.io/ Select Spring Web and Spring for Apache Kafka dependencies and generate the project Next open project in any of the code editor Now, we will have to create a kafka config, to do that create a PublisherConfig class\npackage com.bhushan.kafka.config; import com.bhushan.kafka.model.Student; import org.apache.kafka.clients.producer.ProducerConfig; import org.apache.kafka.common.serialization.StringSerializer; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import org.springframework.kafka.core.DefaultKafkaProducerFactory; import org.springframework.kafka.core.KafkaTemplate; import org.springframework.kafka.core.ProducerFactory; import org.springframework.kafka.support.serializer.JsonSerializer; import java.util.HashMap; import java.util.Map; @Configuration public class PublisherConfig { @Bean public ProducerFactory producerFactory() { Map config = new HashMap\u003c\u003e(); config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, \"127.0.0.1:9092\"); config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class); config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class); return new DefaultKafkaProducerFactory\u003c\u003e(config); } @Bean public KafkaTemplate kafkaTemplate() { return new KafkaTemplate\u003c\u003e(producerFactory()); } } Instead of creating a configuration class we can also configure kafka using application.properties file\n# Producer properties spring.kafka.producer.bootstrap-servers=127.0.0.1:9092 spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer spring.kafka.producer.group-id=group_id topic.name.producer=topico.comando.teste # Common Kafka Properties auto.create.topics.enable=true Second step is to create a data class whose object we will be sending as message using our producer\nCreate class Student.java\npackage com.bhushan.kafka.model; public class Student { int id; String firstName; String lastName; public Student(int id, String firstName, String lastName) { this.id = id; this.firstName = firstName; this.lastName = lastName; } public int getId() { return id; } public void setId(int id) { this.id = id; } public String getFirstName() { return firstName; } public void setFirstName(String firstName) { this.firstName = firstName; } public String getLastName() { return lastName; } public void setLastName(String lastName) { this.lastName = lastName; } } Third we will create a controller endpoint upon hitting which we will be sending a message to kafka topic\nCreate PublishController.java\npackage com.bhushan.kafka.web; import com.bhushan.kafka.model.Student; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.kafka.core.KafkaTemplate; import org.springframework.web.bind.annotation.GetMapping; import org.springframework.web.bind.annotation.PathVariable; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RestController; @RestController @RequestMapping(\"kafka\") public class PublishController { @Autowired private KafkaTemplate kafkaTemplate; private static final String TOPIC = \"first_kafka_topic\"; @GetMapping(\"/publish/{id}/{firstName}/{lastName}\") public String post( @PathVariable(\"id\") final int id, @PathVariable(\"firstName\") final String firstName, @PathVariable(\"lastName\") final String lastName) { kafkaTemplate.send(TOPIC, new Student(id, firstName, lastName)); return \"Published successfully\"; } } This is it. This is our kafka publisher, once hitting /publish endpoint a message will be published to ‘first_kafka_topic’, we can test this by bringing up this application, and using kafka-console-consumer to consume the data\nCreating Kafka consumer in spring boot\nFollow the same steps as producer and create a project on spring initializer.\nFirst we will create consumer configuration\nKafkaConsumerConfig.java\npackage com.bhushan.kafka.config; @EnableKafka @Configuration public class KafkaConsumerConfig { @Bean public ConsumerFactory consumerFactory() { Map props = new HashMap\u003c\u003e(); props.put( ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress); props.put( ConsumerConfig.GROUP_ID_CONFIG, groupId); props.put( ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class); props.put( ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class); return new DefaultKafkaConsumerFactory\u003c\u003e(props); } @Bean public ConcurrentKafkaListenerContainerFactory kafkaListenerContainerFactory() { ConcurrentKafkaListenerContainerFactory factory = new ConcurrentKafkaListenerContainerFactory\u003c\u003e(); factory.setConsumerFactory(consumerFactory()); return factory; } } Then create same Student.java data class as that of producer\nOnce that is done we will be creating a message consumer to consumer messages on “first_kafka_topic”\nCreate MessageConsumer.java\npackage com.bhushan.kafka.consumer; import com.bhushan.kafka.model.Student; import org.springframework.kafka.annotation.KafkaListener; import org.springframework.messaging.handler.annotation.Payload; import org.springframework.stereotype.Service; @Service public class MessageConsumer { @KafkaListener(topics = {\"first_kafka_topic\"}, groupId = \"foo9\", containerFactory = \"kafkaListenerContainerFactory\") public void listenGroupFoo(@Payload Student message) { System.out.println(\"Received Message in group foo: \" + message); } } Bring up both consumer and producer at same time, and try hitting publish endpoint of producer, you should be able to message getting printed in logs of consumer\nCongratulations, You did it 🥳!!\nNext we will try to find a problem with our implementation and how to fix it.\nHappy Coding !!\nReferences Kafka Docs ","wordCount":"609","inLanguage":"en","image":"https://sonawane-bhushan.github.io/%3Cimage%20path/url%3E","datePublished":"2023-09-30T11:30:03Z","dateModified":"2023-09-30T11:30:03Z","author":{"@type":"Person","name":"Bhushan Sonawane"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonawane-bhushan.github.io/posts/kafkaproject/"},"publisher":{"@type":"Organization","name":"Tech Blogs By Bhushan","logo":{"@type":"ImageObject","url":"https://sonawane-bhushan.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://sonawane-bhushan.github.io/ accesskey=h title="Tech Blogs By Bhushan (Alt + H)"><img src=https://sonawane-bhushan.github.io/apple-touch-icon.png alt aria-label=logo height=45>Tech Blogs By Bhushan</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://sonawane-bhushan.github.io/tags/ title=Tags><span>Tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://sonawane-bhushan.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://sonawane-bhushan.github.io/posts/>Posts</a></div><h1 class=post-title>Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application</h1><div class=post-description>Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands</div><div class=post-meta><span title='2023-09-30 11:30:03 +0000 UTC'>September 30, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;609 words&nbsp;·&nbsp;Bhushan Sonawane</div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#consuming-and-publishing-kafka-messages-in-spring-boot>Consuming and publishing kafka messages in spring boot</a></li><li><a href=#references>References</a></li></ul></nav></div></details></div><div class=post-content><h2 id=consuming-and-publishing-kafka-messages-in-spring-boot>Consuming and publishing kafka messages in spring boot<a hidden class=anchor aria-hidden=true href=#consuming-and-publishing-kafka-messages-in-spring-boot>#</a></h2><p>In the last blog we saw how to bring up a kafka cluster on local and publish-consume messages using kafka-console commands. In this blog we will take a look at how to connect your spring boot application to kafka cluster and publish-consume messages via it.</p><p>Let’s start by creating producer first</p><ol><li>Go to <a href=https://start.spring.io/>https://start.spring.io/</a></li><li>Select Spring Web and Spring for Apache Kafka dependencies and generate the project</li><li>Next open project in any of the code editor</li></ol><p>Now, we will have to create a kafka config, to do that create a PublisherConfig class</p><pre tabindex=0><code class=language-java: data-lang=java:>package com.bhushan.kafka.config;
+
+import com.bhushan.kafka.model.Student;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonSerializer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+public class PublisherConfig {
+    @Bean
+    public ProducerFactory&lt;String, Student&gt; producerFactory() {
+        Map&lt;String, Object&gt; config = new HashMap&lt;&gt;();
+
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, &#34;127.0.0.1:9092&#34;);
+
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        
+        return new DefaultKafkaProducerFactory&lt;&gt;(config);
+    }
+
+    @Bean
+    public KafkaTemplate&lt;String, Student&gt;
+    kafkaTemplate() {
+        return new KafkaTemplate&lt;&gt;(producerFactory());
+    }
+}
+</code></pre><p>Instead of creating a configuration class we can also configure kafka using application.properties file</p><pre tabindex=0><code># Producer properties
+spring.kafka.producer.bootstrap-servers=127.0.0.1:9092
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.group-id=group_id
+topic.name.producer=topico.comando.teste
+
+# Common Kafka Properties
+auto.create.topics.enable=true
+</code></pre><p>Second step is to create a data class whose object we will be sending as message using our producer</p><p>Create class Student.java</p><pre tabindex=0><code class=language-java: data-lang=java:>package com.bhushan.kafka.model;
+
+public class Student {
+
+    int id;
+    String firstName;
+    String lastName;
+
+    public Student(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+}
+</code></pre><p>Third we will create a controller endpoint upon hitting which we will be sending a message to kafka topic</p><p>Create PublishController.java</p><pre tabindex=0><code class=language-java: data-lang=java:>package com.bhushan.kafka.web;
+
+import com.bhushan.kafka.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(&#34;kafka&#34;)
+public class PublishController {
+    @Autowired
+    private KafkaTemplate&lt;String, Student&gt; kafkaTemplate;
+
+
+    private static final String TOPIC = &#34;first_kafka_topic&#34;;
+
+
+    @GetMapping(&#34;/publish/{id}/{firstName}/{lastName}&#34;)
+    public String post(
+        @PathVariable(&#34;id&#34;) final int id,
+        @PathVariable(&#34;firstName&#34;) final
+        String firstName,
+        @PathVariable(&#34;lastName&#34;) final
+        String lastName) {
+
+
+        kafkaTemplate.send(TOPIC, new Student(id, firstName, lastName));
+
+
+        return &#34;Published successfully&#34;;
+    }
+}
+</code></pre><p>This is it. This is our kafka publisher, once hitting /publish endpoint a message will be published to ‘first_kafka_topic’, we can test this by bringing up this application, and using kafka-console-consumer to consume the data</p><p>Creating Kafka consumer in spring boot</p><p>Follow the same steps as producer and create a project on spring initializer.</p><p>First we will create consumer configuration</p><p>KafkaConsumerConfig.java</p><pre tabindex=0><code class=language-java: data-lang=java:>package com.bhushan.kafka.config;
+
+
+@EnableKafka
+@Configuration
+public class KafkaConsumerConfig {
+
+
+    @Bean
+    public ConsumerFactory&lt;String, String&gt; consumerFactory() {
+        Map&lt;String, Object&gt; props = new HashMap&lt;&gt;();
+        props.put(
+          ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, 
+          bootstrapAddress);
+        props.put(
+          ConsumerConfig.GROUP_ID_CONFIG, 
+          groupId);
+        props.put(
+          ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, 
+          StringDeserializer.class);
+        props.put(
+          ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, 
+          StringDeserializer.class);
+        return new DefaultKafkaConsumerFactory&lt;&gt;(props);
+    }
+
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory&lt;String, String&gt; 
+      kafkaListenerContainerFactory() {
+   
+        ConcurrentKafkaListenerContainerFactory&lt;String, String&gt; factory =
+          new ConcurrentKafkaListenerContainerFactory&lt;&gt;();
+        factory.setConsumerFactory(consumerFactory());
+        return factory;
+    }
+}
+</code></pre><p>Then create same Student.java data class as that of producer</p><p>Once that is done we will be creating a message consumer to consumer messages on “first_kafka_topic”</p><p>Create MessageConsumer.java</p><pre tabindex=0><code class=language-java: data-lang=java:>package com.bhushan.kafka.consumer;
+
+
+import com.bhushan.kafka.model.Student;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class MessageConsumer {
+
+    @KafkaListener(topics = {&#34;first_kafka_topic&#34;}, groupId = &#34;foo9&#34;, containerFactory = &#34;kafkaListenerContainerFactory&#34;)
+    public void listenGroupFoo(@Payload Student message) {
+        System.out.println(&#34;Received Message in group foo: &#34; + message);
+    }
+
+}
+</code></pre><p>Bring up both consumer and producer at same time, and try hitting publish endpoint of producer, you should be able to message getting printed in logs of consumer</p><p>Congratulations, You did it 🥳!!</p><p>Next we will try to find a problem with our implementation and how to fix it.</p><hr><p>Happy Coding !!</p><h2 id=references>References<a hidden class=anchor aria-hidden=true href=#references>#</a></h2><ol><li><a href=https://kafka.apache.org/documentation/>Kafka Docs</a></li></ol></div><footer class=post-footer><ul class=post-tags><li><a href=https://sonawane-bhushan.github.io/tags/kafka-setup/>kafka-setup</a></li><li><a href=https://sonawane-bhushan.github.io/tags/kafka/>kafka</a></li><li><a href=https://sonawane-bhushan.github.io/tags/local/>local</a></li><li><a href=https://sonawane-bhushan.github.io/tags/java/>java</a></li><li><a href=https://sonawane-bhushan.github.io/tags/springboot/>springboot</a></li><li><a href=https://sonawane-bhushan.github.io/tags/beginners/>beginners</a></li></ul><nav class=paginav><a class=next href=https://sonawane-bhushan.github.io/posts/kafkasetup/><span class=title>Next »</span><br><span>Kafka Series - 1 Setting up kafka on local machine</span></a></nav><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application on twitter" href="https://twitter.com/intent/tweet/?text=Kafka%20Series%20-%202%20Creating%20Kafka%20Consumer%20and%20Producer%20in%20Java%20Spring%20Boot%20Application&amp;url=https%3a%2f%2fsonawane-bhushan.github.io%2fposts%2fkafkaproject%2f&amp;hashtags=kafka-setup%2ckafka%2clocal%2cjava%2cspringboot%2cbeginners"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsonawane-bhushan.github.io%2fposts%2fkafkaproject%2f&amp;title=Kafka%20Series%20-%202%20Creating%20Kafka%20Consumer%20and%20Producer%20in%20Java%20Spring%20Boot%20Application&amp;summary=Kafka%20Series%20-%202%20Creating%20Kafka%20Consumer%20and%20Producer%20in%20Java%20Spring%20Boot%20Application&amp;source=https%3a%2f%2fsonawane-bhushan.github.io%2fposts%2fkafkaproject%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fsonawane-bhushan.github.io%2fposts%2fkafkaproject%2f&title=Kafka%20Series%20-%202%20Creating%20Kafka%20Consumer%20and%20Producer%20in%20Java%20Spring%20Boot%20Application"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonawane-bhushan.github.io%2fposts%2fkafkaproject%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application on whatsapp" href="https://api.whatsapp.com/send?text=Kafka%20Series%20-%202%20Creating%20Kafka%20Consumer%20and%20Producer%20in%20Java%20Spring%20Boot%20Application%20-%20https%3a%2f%2fsonawane-bhushan.github.io%2fposts%2fkafkaproject%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application on telegram" href="https://telegram.me/share/url?text=Kafka%20Series%20-%202%20Creating%20Kafka%20Consumer%20and%20Producer%20in%20Java%20Spring%20Boot%20Application&amp;url=https%3a%2f%2fsonawane-bhushan.github.io%2fposts%2fkafkaproject%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentcolor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer></article></main><footer class=footer><span>&copy; 2023 <a href=https://sonawane-bhushan.github.io/>Tech Blogs By Bhushan</a></span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

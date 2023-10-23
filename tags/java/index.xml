@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kafka-setup on Tech Blogs By Bhushan</title>
-    <link>https://sonawane-bhushan.github.io/tags/kafka-setup/</link>
-    <description>Recent content in kafka-setup on Tech Blogs By Bhushan</description>
+    <title>java on Tech Blogs By Bhushan</title>
+    <link>https://sonawane-bhushan.github.io/tags/java/</link>
+    <description>Recent content in java on Tech Blogs By Bhushan</description>
     <image>
       <title>Tech Blogs By Bhushan</title>
       <url>https://sonawane-bhushan.github.io/</url>
@@ -11,22 +11,13 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Sep 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/kafka-setup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Sep 2023 11:30:03 +0000</lastBuildDate><atom:link href="https://sonawane-bhushan.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka Series - 2 Creating Kafka Consumer and Producer in Java Spring Boot Application</title>
       <link>https://sonawane-bhushan.github.io/posts/kafkaproject/</link>
       <pubDate>Sat, 30 Sep 2023 11:30:03 +0000</pubDate>
       
       <guid>https://sonawane-bhushan.github.io/posts/kafkaproject/</guid>
-      <description>Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands</description>
-    </item>
-    
-    <item>
-      <title>Kafka Series - 1 Setting up kafka on local machine</title>
-      <link>https://sonawane-bhushan.github.io/posts/kafkasetup/</link>
-      <pubDate>Wed, 27 Sep 2023 11:30:03 +0000</pubDate>
-      
-      <guid>https://sonawane-bhushan.github.io/posts/kafkasetup/</guid>
       <description>Kafka Series 1 - Setting up kafka on local, and publising-consuming events using kafka-console commands</description>
     </item>
     
